@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-card-status
+      author: AlexT
+      changes:
+        - createTable:
+            tableName: card_status
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+                    unique: true

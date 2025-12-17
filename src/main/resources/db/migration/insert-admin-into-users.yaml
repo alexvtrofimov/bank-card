@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-admin-into-users-1
+      author: AlexT
+      comment: "Create default admin user"
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: "admin"
+              - column:
+                  name: password
+                  value: "$2a$10$HtYdS/6JshjRVHvRSBvwAesadCm.MOQqLlHSUgwmQJGVY./7fqStK"
+              - column:
+                  name: role
+                  value: "ROLE_ADMIN"

@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-request-block-card
+      author: AlexT
+      changes:
+        - createTable:
+            tableName: request_block_card
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: card_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: card_fk
+                    referencedTableName: card
+                    referencedColumnNames: id
+              - column:
+                  name: completed
+                  type: boolean
+              - column:
+                  name: admin_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+                    foreignKeyName: admin_fk
+                    referencedTableName: users
+                    referencedColumnNames: id

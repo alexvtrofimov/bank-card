@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-card
+      author: AlexT
+      changes:
+        - createTable:
+            tableName: card
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: serial_number
+                  type: varchar(128)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: balance
+                  type: currency(24,2)
+                  defaultValue: 0
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expiration_date
+                  type: datetime
+              - column:
+                  name: status_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: status_fk
+                    referencedTableName: card_status
+                    referencedColumnNames: id
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: user_fk
+                    referencedTableName: users
+                    referencedColumnNames: id
+

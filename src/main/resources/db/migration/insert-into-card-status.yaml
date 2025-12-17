@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-card-status-1
+      author: AlexT
+      comment: "Create default cars status"
+      changes:
+        - insert:
+            tableName: card_status
+            columns:
+              - column:
+                  name: status
+                  value: "Активна"
+        - insert:
+            tableName: card_status
+            columns:
+              - column:
+                  name: status
+                  value: "Заблокирована"
+        - insert:
+            tableName: card_status
+            columns:
+              - column:
+                  name: status
+                  value: "Истек срок"
