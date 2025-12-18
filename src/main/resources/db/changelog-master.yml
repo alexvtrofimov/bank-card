@@ -1,14 +1,14 @@
 databaseChangeLog:
   - include:
-      file: db/migration/create-users-table.yaml
+      file: db/migration/001-create-users-table.yaml
   - include:
-      file: db/migration/create-card-status-table.yaml
+      file: db/migration/002-create-card-status-table.yaml
   - include:
-      file: db/migration/create-card-table.yaml
+      file: db/migration/003-create-card-table.yaml
   - include:
-      file: db/migration/create-request-block-card-table.yaml
+      file: db/migration/004-create-request-block-card-table.yaml
 
   - include:
-      file: db/migration/insert-into-card-status.yaml
+      file: db/migration/005-insert-into-card-status.yaml
   - include:
-      file: db/migration/insert-admin-into-users.yaml
+      file: db/migration/006-insert-admin-into-users.yaml

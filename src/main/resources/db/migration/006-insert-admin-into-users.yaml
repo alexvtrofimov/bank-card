@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: insert-admin-into-users-1
+      id: 006-insert-admin-into-users
       author: AlexT
       comment: "Create default admin user"
       changes:

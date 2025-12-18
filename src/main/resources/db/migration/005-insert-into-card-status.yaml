@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: insert-into-card-status-1
+      id: 005-insert-into-card-status
       author: AlexT
       comment: "Create default cars status"
       changes:

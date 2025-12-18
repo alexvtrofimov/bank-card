@@ -3,6 +3,7 @@ package com.example.bankcards.controller;
 import com.example.bankcards.dto.SignUserDto;
 import com.example.bankcards.entity.Role;
 import com.example.bankcards.entity.User;
+import com.example.bankcards.exception.UserAlreadyExist;
 import com.example.bankcards.repository.UserRepository;
 import com.example.bankcards.security.JwtUtil;
 import com.example.bankcards.service.UserService;
@@ -49,9 +50,9 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signup")
-    public String signUp(@RequestBody SignUserDto userRequest) {
+    public String signUp(@RequestBody SignUserDto userRequest) throws UserAlreadyExist {
         if (userService.existsUsername(userRequest.username())) {
-            return "User already exist";
+            throw new UserAlreadyExist("User already exist");
         }
 
         final User newUser = new User(

@@ -39,9 +39,9 @@ public class UserController {
         return ResponseEntity.ofNullable(userService.getAllUsers());
     }
 
-    @PostMapping("/add")
+    @PostMapping
     @Secured("ROLE_ADMIN")
-    public ResponseEntity addUser(@RequestBody @Validated UserDto userDto) {
+    public ResponseEntity createUser(@RequestBody @Validated UserDto userDto) {
         User savedUser = this.userService.save(userDto);
         return ResponseEntity.ok(savedUser);
     }

@@ -2,6 +2,7 @@ package com.example.bankcards.controller;
 
 import com.example.bankcards.exception.BalanceException;
 import com.example.bankcards.exception.CardNotFoundException;
+import com.example.bankcards.exception.UserAlreadyExist;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -82,6 +83,14 @@ public class ExceptionApiHandler {
         log.error(exception.getMessage(), exception);
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
+                .body(new ResponseApiError(exception.getMessage(), exception.getDebugMessage()));
+    }
+
+    @ExceptionHandler(UserAlreadyExist.class)
+    public ResponseEntity<ResponseApiError> handleUserAlreadyExistException(UserAlreadyExist exception) {
+        log.error(exception.getMessage(), exception);
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
                 .body(new ResponseApiError(exception.getMessage(), exception.getDebugMessage()));
     }
 

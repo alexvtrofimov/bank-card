@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-card-status
+      id: 002-create-card-status
       author: AlexT
       changes:
         - createTable:

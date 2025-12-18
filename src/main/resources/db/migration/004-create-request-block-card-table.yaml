@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-request-block-card
+      id: 004-create-request-block-card
       author: AlexT
       changes:
         - createTable:
